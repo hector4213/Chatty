@@ -1,51 +1,33 @@
 <div class="container min-h-screen bg-red-400">
-	<div className="flex justify-center items-center">
-		<div class="grid grid-cols-2 grid-rows-4 mx-auto">
-			<div class="col-span-1 row-span-full">
-				<h1 class="text-center">Rooms</h1>
-				<ul>
-					<li
+  <div className="flex justify-center items-center">
+    <div class="grid grid-cols-2 grid-rows-4 mx-auto">
+      <div class="col-span-1 row-span-full">
+        <h1 class="text-center">Rooms</h1>
+        <ul>
+          <%= for room <- @rooms do %>
+            <li
 						class="m-1 px-4 py-2 text-base rounded-full text-white bg-green-500"
 					>
-						General
-					</li>
-					<li
-						class="m-1 px-4 py-2 text-base rounded-full text-white bg-green-500"
-					>
-						Programming
-					</li>
-					<li
-						class="m-1 px-4 py-2 text-base rounded-full text-white bg-green-500"
-					>
-						Javascript
-					</li>
-					<li
-						class="m-1 px-4 py-2 text-base rounded-full text-white bg-green-500"
-					>
-						Ruby
-					</li>
-					<li
-						class="m-1 px-4 py-2 text-base rounded-full text-white bg-green-500"
-					>
-						Elixir
-					</li>
-				</ul>
-			</div>
-			<div class="bg-blue-300 col-span-1 row-span-full">
-				<div>
-					<h3 class="text-2xl font-medium text-center">Welcome to Chatty</h3>
-				</div>
-				<div>
-					<h3 class="text-md">Choose a room or make one</h3>
-					<a
+              <%= link room.name, to: Routes.room_path(@conn, :show, room.id) %>
+            </li>
+          <%=end%>
+        </ul>
+      </div>
+      <div class="bg-blue-300 col-span-1 row-span-full">
+        <div>
+          <h3 class="text-2xl font-medium text-center">Welcome to Chatty</h3>
+        </div>
+        <div>
+          <h3 class="text-md">Choose a room or make one</h3>
+          <a
 						href=""
 						class="px-4 py-2 text-base rounded-full text-white bg-indigo-500"
 					>
-						Create
-					</a>
-				</div>
-			</div>
-		</div>
-		<div></div>
-	</div>
+            Create
+          </a>
+        </div>
+      </div>
+    </div>
+    <div></div>
+  </div>
 </div>
