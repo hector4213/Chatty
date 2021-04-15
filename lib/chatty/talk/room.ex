@@ -15,7 +15,7 @@ defmodule Chatty.Talk.Room do
   def changeset(%Room{} = room, attrs) do
     room
     |> cast(attrs, [:name, :description, :topic])
-    |> validate_required([:name,])
+    |> validate_required([:name])
     |> unique_constraint(:name)
     |> validate_length(:name, min: 5, max: 30)
     |> validate_length(:topic, min: 5, max: 120)
