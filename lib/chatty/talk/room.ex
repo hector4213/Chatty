@@ -20,5 +20,4 @@ defmodule Chatty.Talk.Room do
     |> validate_length(:name, min: 5, max: 30)
     |> validate_length(:topic, min: 5, max: 120)
   end
-  end
 end
