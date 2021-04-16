@@ -6,11 +6,11 @@
         <ul>
           <%= for room <- @rooms do %>
             <li
-						class="m-1 px-4 py-2 text-base rounded-full text-white bg-green-500"
+						class="py-2"
 					>
-              <%= link room.name, to: Routes.room_path(@conn, :show, room.id) %>
+              <%= link room.name, to: Routes.room_path(@conn, :show, room.id), class: "m-1 px-4 py-2 text-base rounded-full text-white bg-green-500" %>
             </li>
-          <%=end%>
+          <%end%>
         </ul>
       </div>
       <div class="bg-blue-300 col-span-1 row-span-full">
