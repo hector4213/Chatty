@@ -1,0 +1,13 @@
+<%= form_for @changeset, @action, fn f -> %>
+<form>
+  <div>
+    <%= label f, :name, class: "bg-red-100", class: "" %>
+    <%= text_input f, :name, class: "" %> <%= error_tag f, :name %>
+  </div>
+  <div>
+    <%= label f, :description, class: "bg-red-100", class: "" %>
+    <%= text_input f, :description, class: "" %> <%= error_tag f, :description %>
+  </div>
+  <div><%= submit "Submit", class: "" %></div>
+</form>
+<%end%>
