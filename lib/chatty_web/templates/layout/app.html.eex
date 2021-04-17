@@ -9,12 +9,18 @@
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <body>
-    <header>
-      <nav class="w-full h-10 flex items-center bg-yellow-300">
+    <header class="bg-yellow-400">
+      <nav class="w-full h-10 flex items-center">
         <ul className="flex">
           <li><%= link "Chatty", to: Routes.room_path(@conn, :index), class: "text-xl font-medium"%></li>
         </ul>
       </nav>
+      <%= if Chatty.Accounts.user_signed_in?(@conn) do %>
+        <div class="flex flex-col justify-center items-center">
+          <h3> Signed in as : <%= Chatty.Accounts.current_user(@conn).username %> </h3>
+          <%= link "Sign Out", to: Routes.session_path(@conn, :delete), method: :delete, class: "px-4 py-2 text-base rounded-full text-white bg-black" %>
+        </div>
+      <% end %>
     </header>
     <%= unless is_nil(get_flash(@conn, :info)) do %>
       <p class="bg-red-400" role="alert"> <%= get_flash(@conn, :info) %></p>
