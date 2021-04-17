@@ -18,7 +18,7 @@ defmodule ChattyWeb.Router do
 
     get "/", RoomController, :index
     resources("/rooms", RoomController, except: [:index])
-    resources("/sessions", SessionsController, only: [:new, :create])
+    resources("/sessions", SessionController, only: [:new, :create])
   end
 
   # Other scopes may use custom stacks.
