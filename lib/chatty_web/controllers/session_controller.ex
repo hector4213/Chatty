@@ -1,4 +1,4 @@
-defmodule Chatty.SessionController do
+defmodule ChattyWeb.SessionController do
   use ChattyWeb, :controller
 
   def new(conn, _) do
