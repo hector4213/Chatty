@@ -1,6 +1,6 @@
-<div class="container min-h-screen bg-red-400">
-  <div className="flex justify-center items-center">
-    <div class="grid grid-cols-2 grid-rows-4 mx-auto">
+<div class="w-full bg-red-400">
+  <div className="flex justify-center">
+    <div class="grid grid-cols-2 grid-rows-4">
       <div class="col-span-1 row-span-full">
         <h1 class="text-center">Rooms</h1>
         <ul>
