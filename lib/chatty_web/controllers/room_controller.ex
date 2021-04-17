@@ -53,7 +53,7 @@ defmodule ChattyWeb.RoomController do
 
   def delete(conn, %{"id" => id}) do
     room = Talk.get_room!(id)
-    {:ok, _room} = Talk.delete_room(room)
+    {:ok, __room} = Talk.delete_room(room)
 
     conn
     |> put_flash(:info, "room deleted")
