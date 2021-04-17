@@ -1,1 +1,19 @@
-<h1 class="text2xl">Log In</h1>
+<div class="container">
+  <%= form_for @conn, Routes.session_path(@conn, :create), [as: :session, class: "w-full"], fn f -> %>
+  <div class="text-center">
+    <h1 class="text-4xl">Log In</h1>
+  </div>
+  <form>
+    <div>
+      <%= label f, :email, class: "bg-red-100", class: ""%>
+      <%= text_input f, :email, class: "", placeholder: "Email", required: true, autofocus: true%>
+      <%= error_tag f, :email %>
+    </div>
+    <div>
+      <%= label f, :password, class: "bg-red-100", class: ""%>
+      <%= text_input f, :password, class: "", placeholder: "Enter Password", required: true  %> <%= error_tag f, :password %>
+    </div>
+    <div><%= submit "Sign In", class: "px-4 py-2 text-base rounded-full text-white bg-blue-500" %></div>
+  </form>
+<%end%>
+</div>
