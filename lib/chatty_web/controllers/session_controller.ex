@@ -20,4 +20,10 @@ defmodule ChattyWeb.SessionController do
         |> render("new.html")
     end
   end
+
+  def delete(conn, _) do
+    conn
+    |> Accounts.sign_out()
+    |> redirect(to: Routes.room_path(conn, :index))
+  end
 end
