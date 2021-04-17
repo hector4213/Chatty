@@ -23,7 +23,7 @@
       <%= password_input f, :password_confirmation, class: "", placeholder: "Confirm Password", required: true  %> <%= error_tag f, :password %>
       <%= error_tag f, :password_confirmation %>
     </div>
-    <div><%= submit "Sign In", class: "px-4 py-2 text-base rounded-full text-white bg-blue-500" %></div>
+    <div><%= submit "Sign Up", to: Routes.registration_path(@conn, :create), class: "px-4 py-2 text-base rounded-full text-white bg-green-500" %></div>
   </form>
 <%end%>
 </div>
