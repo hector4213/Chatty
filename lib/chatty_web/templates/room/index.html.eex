@@ -19,12 +19,7 @@
         </div>
         <div>
           <h3 class="text-md">Choose a room or make one</h3>
-          <a
-						href=""
-						class="px-4 py-2 text-base rounded-full text-white bg-indigo-500"
-					>
-            Create
-          </a>
+          <%= link "New Room", to: Routes.room_path(@conn, :new), class: "m-1 px-4 py-2 text-base rounded-full text-white bg-blue-500" %>
         </div>
       </div>
     </div>
