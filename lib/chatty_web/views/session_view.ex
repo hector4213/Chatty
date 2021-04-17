@@ -1,3 +1,3 @@
-defmodule Chatty.SessionView do
+defmodule ChattyWeb.SessionView do
   use ChattyWeb, :view
 end
