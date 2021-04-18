@@ -5,6 +5,7 @@ defmodule ChattyWeb.RoomController do
   alias Chatty.Talk
 
   plug ChattyWeb.Plugs.AuthUser when action not in [:index]
+  plug :authorize_user when action in [:edit, :update, :delete]
 
   def index(conn, _params) do
     rooms = Talk.list_rooms()
@@ -60,5 +61,19 @@ defmodule ChattyWeb.RoomController do
     conn
     |> put_flash(:info, "room deleted")
     |> redirect(to: Routes.room_path(conn, :index))
+  end
+
+  defp authorize_user(conn, _params) do
+    %{params: %{"id" => room_id}} = conn
+    room = Talk.get_room!(room_id)
+
+    if conn.assigns.current_user.id == room.user_id do
+      conn
+    else
+      conn
+      |> put_flash(:error, "You are not authorized")
+      |> redirect(to: Routes.room_path(conn, :index))
+      |> halt()
+    end
   end
 end
