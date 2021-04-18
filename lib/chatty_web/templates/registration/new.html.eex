@@ -11,7 +11,7 @@
     </div>
     <div>
       <%= label f, :username, class: "bg-red-100", class: ""%>
-      <%= text_input f, :password, class: "", placeholder: "Enter Username", required: true  %> <%= error_tag f, :password %>
+      <%= text_input f, :username, class: "", placeholder: "Enter Username", required: true  %> <%= error_tag f, :password %>
     </div>
     <div>
       <%= label f, :password, class: "bg-red-100", class: ""%>
@@ -23,7 +23,7 @@
       <%= password_input f, :password_confirmation, class: "", placeholder: "Confirm Password", required: true  %> <%= error_tag f, :password %>
       <%= error_tag f, :password_confirmation %>
     </div>
-    <div><%= submit "Sign Up", to: Routes.registration_path(@conn, :create), class: "px-4 py-2 text-base rounded-full text-white bg-green-500" %></div>
+    <div><%= submit "Sign Up", class: "px-4 py-2 text-base rounded-full text-white bg-green-500" %></div>
   </form>
 <%end%>
 </div>
