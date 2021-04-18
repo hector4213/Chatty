@@ -10,7 +10,12 @@ defmodule Chatty.Talk do
     Room.changeset(room, %{})
   end
 
-  def create_room(attrs \\ %{}) do
+  def create_room(user, attrs \\ %{}) do
+    user
+    |> Ecto.build_assoc(:rooms)
+    |> Room.changeset(attrs)
+    |> Repo.insert()
+
     %Room{}
     |> Room.changeset(attrs)
     |> Repo.insert()

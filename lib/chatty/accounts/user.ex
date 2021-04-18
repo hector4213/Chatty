@@ -9,6 +9,7 @@ defmodule Chatty.Accounts.User do
     field :username, :string
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
+    has_many :rooms, Chatty.Talk.Room
     timestamps()
   end
 
