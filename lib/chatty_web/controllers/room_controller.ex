@@ -17,7 +17,7 @@ defmodule ChattyWeb.RoomController do
   end
 
   def create(conn, %{"room" => room_params}) do
-    case Talk.create_room(room_params) do
+    case Talk.create_room(conn.assigns.current_user, room_params) do
       {:ok, _} ->
         conn
         |> put_flash(:info, "Room Created")
