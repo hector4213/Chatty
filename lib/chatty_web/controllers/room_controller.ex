@@ -4,6 +4,8 @@ defmodule ChattyWeb.RoomController do
   alias Chatty.Talk.Room
   alias Chatty.Talk
 
+  plug :auth_user when action not in [:index]
+
   def index(conn, _params) do
     rooms = Talk.list_rooms()
     render(conn, "index.html", rooms: rooms)
@@ -58,5 +60,16 @@ defmodule ChattyWeb.RoomController do
     conn
     |> put_flash(:info, "room deleted")
     |> redirect(to: Routes.room_path(conn, :index))
+  end
+
+  defp auth_user(conn, _params) do
+    if conn.assigns.signed_in? do
+      conn
+    else
+      conn
+      |> put_flash(:error, "You must be signed in..")
+      |> redirect(to: Routes.session_path(conn, :new))
+      |> halt()
+    end
   end
 end
