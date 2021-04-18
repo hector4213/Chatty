@@ -6,7 +6,7 @@
   <form>
     <div>
       <%= label f, :email, class: "bg-red-100", class: ""%>
-      <%= password_input f, :email, class: "", placeholder: "Email", required: true, autofocus: true%>
+      <%= text_input f, :email, class: "", placeholder: "Email", required: true, autofocus: true%>
       <%= error_tag f, :email %>
     </div>
     <div>
