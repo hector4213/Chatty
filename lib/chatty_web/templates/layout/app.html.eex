@@ -33,5 +33,6 @@
     <main role="main" class="min-w-screen">
       <%= @inner_content %>
     </main>
+    <script>window.userToken = "<%= assigns[:user_token] %>";</script>
   </body>
 </html>
