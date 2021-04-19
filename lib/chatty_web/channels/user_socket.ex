@@ -2,7 +2,7 @@ defmodule ChattyWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", ChattyWeb.RoomChannel
+  channel "room:*", ChattyWeb.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
