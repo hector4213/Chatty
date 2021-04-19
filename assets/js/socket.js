@@ -29,7 +29,6 @@ if (roomId) {
 	})
 
 	const displayMessage = (msg) => {
-		console.log(msg)
 		let template = `<li>
 		<strong>${msg.user.username}</strong>
 		${msg.body}
