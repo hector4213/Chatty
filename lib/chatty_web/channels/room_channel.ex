@@ -23,9 +23,12 @@ defmodule ChattyWeb.RoomChannel do
     user = get_user(socket)
 
     {:ok, _} =
-      Presence.track(socket, "user:#{user.id}", %{user_id: user.id, username: user.username})
+      Presence.track(socket, "user:#{user.id}", %{
+        user_id: user.id,
+        username: user.username
+      })
 
-    {:no_reply, socket}
+    {:noreply, socket}
   end
 
   def get_user(socket) do
