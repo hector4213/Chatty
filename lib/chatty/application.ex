@@ -14,7 +14,8 @@ defmodule Chatty.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Chatty.PubSub},
       # Start the Endpoint (http/https)
-      ChattyWeb.Endpoint
+      ChattyWeb.Endpoint,
+      ChattyWeb.Presence
       # Start a worker by calling: Chatty.Worker.start_link(arg)
       # {Chatty.Worker, arg}
     ]
