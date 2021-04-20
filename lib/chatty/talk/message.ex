@@ -4,8 +4,8 @@ defmodule Chatty.Talk.Message do
 
   schema "messages" do
     field :body, :string
-    field :room_id, :id
-    field :user_id, :id
+    belongs_to :room, Chatty.Talk.Room
+    belongs_to :user, Chatty.Accounts.User
 
     timestamps()
   end
