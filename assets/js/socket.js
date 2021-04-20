@@ -9,6 +9,10 @@ let presences = {}
 socket.connect()
 
 if (roomId) {
+	const timeout = 3000
+	var typingTimer
+	let isUserTyping = false
+
 	let channel = socket.channel(`room:${roomId}`, {})
 	channel
 		.join()
@@ -40,6 +44,27 @@ if (roomId) {
 		input.value = ''
 	})
 
+	document.querySelector('#message-body').addEventListener('keydown', () => {
+		startTyping()
+		clearTimeout(typingTimer)
+	})
+	document.querySelector('#message-body').addEventListener('keyup', () => {
+		clearTimeout(typingTimer)
+		typingTimer = setTimeout(stopTyping, timeout)
+	})
+
+	const startTyping = () => {
+		if (isUserTyping) return
+		isUserTyping = true
+		channel.push('user:typing', { typing: true })
+	}
+
+	const stopTyping = () => {
+		clearTimeout(typingTimer)
+		isUserTyping = false
+		channel.push('user:typing', { typing: false })
+	}
+
 	const displayMessage = (msg) => {
 		let template = `<li>
 		<strong>${msg.user.username}</strong>
@@ -52,7 +77,11 @@ if (roomId) {
 
 const displayUsers = (presences) => {
 	let online = Presence.list(presences, (_id, { metas: [user, ...rest] }) => {
-		return `<div id="user-${user.user_id}">${user.username}</div>`
+		let typingTemplate = ''
+		if (user.typing) {
+			typingTemplate = '<span>(Typing...)</span>'
+		}
+		return `<div id="user-${user.user_id}">${user.username}${typingTemplate}</div>`
 	}).join('')
 	document.querySelector('#users-online').innerHTML = online
 }
