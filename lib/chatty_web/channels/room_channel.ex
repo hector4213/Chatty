@@ -20,6 +20,7 @@ defmodule ChattyWeb.RoomChannel do
 
   def handle_info(:after_join, socket) do
     push(socket, "presence_state", Presence.list(socket))
+
     user = get_user(socket)
 
     {:ok, _} =
