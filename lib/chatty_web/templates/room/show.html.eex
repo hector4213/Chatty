@@ -4,6 +4,14 @@
   <%= link "Edit", to: Routes.room_path(@conn, :edit, @room.id), class: "m-1 px-4 py-2 text-base rounded-full text-white bg-green-500"%>
   <%= link "Delete", to: Routes.room_path(@conn, :delete, @room), method: :delete, data: [confirm: "Are you sure you want to delete this room?"], class: "m-1 px-4 py-2 text-base rounded-full text-white bg-red-500"%>
   <ul id="display" class="md:min-w-xl bg-red-600"></ul>
+  <div class="bg-gray-300">
+    <diV>
+    Users Online:
+    </div>
+    <div id="users-online">
+
+    </div>
+  </div>
   <form id="message-form">
   <input id="message-body" type="text" class="w-96" placeholder="Write your message here"/>
   <div class="">
