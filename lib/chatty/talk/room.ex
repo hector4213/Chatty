@@ -9,7 +9,7 @@ defmodule Chatty.Talk.Room do
     field :topic, :string
 
     belongs_to :user, Chatty.Accounts.User
-    has_many :message, Chatty.Talk.Message
+    has_many :messages, Chatty.Talk.Message
 
     timestamps()
   end
