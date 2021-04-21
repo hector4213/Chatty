@@ -4,6 +4,8 @@ defmodule ChattyWeb.RoomChannel do
   alias Chatty.Repo
   alias Chatty.Accounts.User
   alias ChattyWeb.Presence
+  alias Chatty.Talk.Message
+  alias Chatty.Talk
 
   def join("room:" <> room_id, _params, socket) do
     send(self(), :after_join)
@@ -11,11 +13,19 @@ defmodule ChattyWeb.RoomChannel do
   end
 
   def handle_in("message:add", %{"message" => body}, socket) do
-    room_id = socket.assigns[:room_id]
+    room = Talk.get_room!(socket.assigns[:room_id])
     user = get_user(socket)
-    message = %{body: body, user: %{username: user.username}}
-    broadcast!(socket, "room:#{room_id}:new_message", message)
-    {:reply, :ok, socket}
+
+    case Talk.create_message(user, room, %{body: body}) do
+      {:ok, message} ->
+        message = Repo.preload(message, :user)
+        message_template = %{body: message.body, user: %{username: message.user.username}}
+        broadcast!(socket, "room:#{message.room_id}:new_message", message_template)
+        {:reply, :ok, socket}
+
+      {:error, _} ->
+        {:reply, :error, socket}
+    end
   end
 
   def handle_in("user:typing", %{"typing" => typing}, socket) do
