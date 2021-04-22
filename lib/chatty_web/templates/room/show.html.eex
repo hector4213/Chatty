@@ -4,8 +4,8 @@
     <h1 class="text-center">Description: <%=@room.description%></h1>
   </div>
   <div class="grid grid-cols-6 grid-rows-5">
-    <div class="col-span-2 row-span-full">
-      <h1 class="text-lg font-medium">Users Online</h1>
+    <div class="col-span-2 row-span-full p-2 rounded-lg bg-gray-300">
+      <h1 class="text-lg font-light">Users Online</h1>
       <div id="users-online">
       </div>
     </div>

@@ -3,7 +3,7 @@
     <div class="col-span-2 row-span-full">
       <div
         class="container flex flex-col mx-auto w-full items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow max-h-full">
-        <h1 class="text-center text-2xl p-3 font-thin text-gray-400">Rooms</h1>
+        <h1 class="text-center text-2xl p-3 font-light text-gray-400">Rooms</h1>
         <ul class="mt-2 flex flex-col w-full overflow-auto scrollbar scrollbar-thumb-gray-700 scrollbar-track-gray-100">
           <%= for room <- @rooms do %>
           <li class="shadow-lg rounded-2xl my-2 mx-4 bg-white dark:bg-gray-800 p-4">
