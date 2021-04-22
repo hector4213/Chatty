@@ -4,24 +4,24 @@
       <h1 class="text-center text-2xl p-3 text-white font-thin">Rooms</h1>
       <ul>
         <%= for room <- @rooms do %>
-          <li
-						class="py-2"
-					>
-            <%= link room.name, to: Routes.room_path(@conn, :show, room.id), class: "m-1 px-4 py-2 text-base rounded-full text-white bg-gradient-to-r from-red-400 to-gray-500" %>
-          </li>
+        <li class="py-2">
+          <%= link room.name, to: Routes.room_path(@conn, :show, room.id), class: "m-1 px-4 py-2 text-base rounded-full text-white bg-gradient-to-r from-red-400 to-gray-500" %>
+        </li>
         <%end%>
       </ul>
     </div>
-    <div class="bg-gray-300 col-span-4 row-span-full">
+    <div class="bg-white col-span-4 row-span-full">
       <div class="flex flex-col justify-center items-center h-full">
-        <h3 class="p-4 text-2xl font-thin text-center text-white">Welcome to Chatty</h3>
-        <div class="flex-grow">
-          <div class="flex flex-col justify-around h-full">
+        <div class="flex items-center">
+          <h3 class="p-4 text-2xl font-thin text-center text-gray-400 tracking-widest uppercase">Welcome to Chatty</h3>
+          <i class="fas fa-globe-americas fa-3x text-red-300 "></i>
+        </div>
+        <div class="flex flex-col justify-around h-full">
+          <div class="flex flex-col items-center justify-evenly h-full">
+            <h3 class="text-center text-gray-400 extra-light tracking-widest">Selct a room or create a new room</h3>
+            <i class="fas fa-door-open text-gray-200 fa-4x"></i>
             <div>
-              <h3 class="text-center text-white">Choose a room or make one</h3>
-            </div>
-            <div>
-              <%= link "Create Room", to: Routes.room_path(@conn, :new), class: "m-1 px-4 py-2 text-base rounded-full text-white bg-blue-500" %>
+              <%= link "Create Room", to: Routes.room_path(@conn, :new), class: "m-1 px-4 py-2 text-base rounded-full text-white bg-red-300 shadow-lg" %>
             </div>
           </div>
         </div>
