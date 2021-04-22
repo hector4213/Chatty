@@ -1,6 +1,6 @@
 <div class="container bg-gray-400 rounded-md p-2 h-4/6 w-full m-4 shadow-xl max-h-full">
 
-  <div class="grid grid-cols-3 gap-x-2 grid-rows-5 h-full">
+  <div class="grid grid-cols-3 gap-x-2 grid-rows-5 h-full ">
     <div class="col-span-full row-span-1 flex items-center justify-center">
       <h1 class="text-center font-light text-gray-700">Room Name: <%= @room.name%> </h1>
       <h1 class="text-center font-light text-gray-700"">Description: <%=@room.description%></h1>
@@ -12,15 +12,15 @@
     </div>
     <div class="col-span-2 row-span-4">
       <ul id="display"
-        class="md:min-w-xl bg-gray-200 h-96 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-500 overflow-auto p-2 rounded-md">
+        class="h-3/4 bg-gray-200 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-500 overflow-auto p-2 rounded-md">
       </ul>
       <form id="message-form">
-        <input id="message-body" type="text"
-          class="mt-4 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-3/4 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent placeholder="
+        <input id="message-body" type="text" placeholder="Start typing...."
+          class="mt-4 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-3/4 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-lg text-base focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
           Write your message here" />
         <div class="mt-4">
           <button id="message-button"
-            class="w-36 px-4 py-2 text-base rounded-lg text-white bg-green-500">SEND</button />
+            class="w-36 px-4 py-2 text-base rounded-lg text-white bg-green-500 focus:outline-none">SEND</button />
         </div>
       </form>
     </div>
