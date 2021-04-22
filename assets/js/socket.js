@@ -80,9 +80,12 @@ const displayUsers = (presences) => {
 	let online = Presence.list(presences, (_id, { metas: [user, ...rest] }) => {
 		let typingTemplate = ''
 		if (user.typing) {
-			typingTemplate = '<span>(Typing...)</span>'
+			typingTemplate = `<i class="far fa-keyboard text-red-600 animate-ping ml-4"></i>`
 		}
-		return `<div id="user-${user.user_id}">${user.username}${typingTemplate}</div>`
+		return `<div id="user-${user.user_id} class="p-2 flex justify-start">
+		<span>${user.username}</span>
+		${typingTemplate}
+		</div>`
 	}).join('')
 	document.querySelector('#users-online').innerHTML = online
 }
