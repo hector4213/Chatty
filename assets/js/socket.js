@@ -9,7 +9,7 @@ let presences = {}
 socket.connect()
 
 if (roomId) {
-	const timeout = 3000
+	const timeout = 1500
 	var typingTimer
 	let isUserTyping = false
 
