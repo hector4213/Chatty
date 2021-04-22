@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chatty · Phoenix Framework</title>
+  <title>Chatty</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
@@ -13,8 +13,8 @@
   <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
 </head>
 
-<body class="h-screen max-h-full bg-gray-700">
-  <header class="bg-gradient-to-r from-red-400 to-gray-700 p-4">
+<body>
+  <header class="absolute top-0 left-0 bg-gradient-to-r from-red-400 to-gray-700 p-4 w-full">
     <nav class="w-full p-0 flex flex-col justify-evenly md:flex-row md:justify-between  items-center">
       <div class="py-1">
         <%= link "Chatty", to: Routes.room_path(@conn, :index), class: "font-medium md:ml-4 text-xl uppercase text-red-300 tracking-widest"%>
@@ -29,7 +29,7 @@
           <%= link "Sign Out", to: Routes.session_path(@conn, :delete), method: :delete, class: "px-4 py-2 rounded-full text-white bg-red-400 shadow-lg" %>
           <div>
             <% else %>
-            <div class=" w-48">
+            <div class="w-48">
               <%= link "Sign Up", to: Routes.registration_path(@conn, :new), class: "px-4 py-2 text-base rounded-full text-white bg-green-400" %>
               <%= link "Log in", to: Routes.session_path(@conn, :new), class: "px-4 py-2 text-base rounded-full text-white bg-green-400"%>
             </div>
@@ -42,7 +42,7 @@
   <%= unless is_nil(get_flash(@conn, :error)) do %>
   <p class="bg-red-400" role="alert"> <%= get_flash(@conn, :error) %></p>
   <% end %>
-  <main role="main" class="flex items-center justify-center h-full">
+  <main role="main" class="h-screen bg-gray-600 flex items-center justify-center ">
     <%= @inner_content %>
   </main>
   <script>
