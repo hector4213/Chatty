@@ -1,17 +1,18 @@
-<div class="bg-gray-400 rounded-md p-4 w-full m-4 shadow-xl">
-  <div class="p-4">
-    <h1 class="text-center">Room Name: <%= @room.name%> </h1>
-    <h1 class="text-center">Description: <%=@room.description%></h1>
-  </div>
-  <div class="grid grid-cols-6 grid-rows-5">
-    <div class="col-span-2 row-span-full p-2 rounded-lg bg-gray-300">
-      <h1 class="text-lg font-light">Users Online</h1>
-      <div id="users-online">
-      </div>
+<div class="container bg-gray-400 rounded-md p-2 h-4/6 w-full m-4 shadow-xl max-h-full">
+
+  <div class="grid grid-cols-3 gap-x-2 grid-rows-5 h-full">
+    <div class="col-span-full row-span-1 flex items-center justify-center">
+      <h1 class="text-center font-light text-gray-700">Room Name: <%= @room.name%> </h1>
+      <h1 class="text-center font-light text-gray-700"">Description: <%=@room.description%></h1>
     </div>
-    <div class="col-span-4 row-span-4">
+    <div class=" col-span-1 row-span-4 p-2 rounded-lg bg-gray-300">
+        <h1 class="text-lg font-light">Users Online</h1>
+        <div id="users-online">
+        </div>
+    </div>
+    <div class="col-span-2 row-span-4">
       <ul id="display"
-        class="md:min-w-xl bg-gray-200 h-48 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-500 overflow-auto p-2 rounded-md">
+        class="md:min-w-xl bg-gray-200 h-96 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-500 overflow-auto p-2 rounded-md">
       </ul>
       <form id="message-form">
         <input id="message-body" type="text"
