@@ -1,14 +1,20 @@
-<div class="bg-gray-400 rounded-md p-4 w-full m-4">
-  <div class="grid grid-cols-6 grid-rows-4">
+<div class="bg-gray-400 rounded-md p-4 w-full m-4 h-full max-h-full">
+  <div class="grid grid-cols-6 grid-rows-4 gap-x-4 h-full">
     <div class="col-span-2 row-span-full">
-      <h1 class="text-center text-2xl p-3 text-white font-thin">Rooms</h1>
-      <ul>
-        <%= for room <- @rooms do %>
-        <li class="py-2">
-          <%= link room.name, to: Routes.room_path(@conn, :show, room.id), class: "m-1 px-4 py-2 text-base rounded-full text-white bg-gradient-to-r from-red-400 to-gray-500" %>
-        </li>
-        <%end%>
-      </ul>
+      <div
+        class="container flex flex-col mx-auto w-full items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow max-h-full">
+        <h1 class="text-center text-2xl p-3 font-thin text-gray-400">Rooms</h1>
+        <ul class="mt-2 flex flex-col w-full overflow-auto scrollbar scrollbar-thumb-gray-700 scrollbar-track-gray-100">
+          <%= for room <- @rooms do %>
+          <li class="shadow-lg rounded-2xl my-2 mx-4 bg-white dark:bg-gray-800 p-4">
+            <div class="flex-row gap-4 flex items-center">
+              <i class="fas fa-door-closed fa-2x text-gray-500"></i>
+              <%= link room.name, to: Routes.room_path(@conn, :show, room.id), class: "px-2 py-1 font-extralight tracking-widest rounded-full text-gray-600" %>
+            </div>
+          </li>
+          <%end%>
+        </ul>
+      </div>
     </div>
     <div class="bg-white col-span-4 row-span-full">
       <div class="flex flex-col justify-center items-center h-full">
