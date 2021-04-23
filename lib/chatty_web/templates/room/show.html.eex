@@ -1,26 +1,24 @@
-<div class="container bg-gray-400 rounded-md p-2 h-4/6 w-full m-4 shadow-xl max-h-full">
-
-  <div class="grid grid-cols-3 gap-x-2 grid-rows-5 h-full ">
-    <div class="col-span-full row-span-1 flex items-center justify-center">
-      <h1 class="text-center font-light text-gray-700">Room Name: <%= @room.name%> </h1>
-      <h1 class="text-center font-light text-gray-700"">Description: <%=@room.description%></h1>
+<div class="container mt-20 bg-gray-400 rounded-md p-2 w-full shadow-xl max-h-full md:h-4/6 m-4">
+  <div class="flex flex-col md:grid grid-cols-3 gap-x-2 grid-rows-5 h-full">
+    <div class="col-span-full flex-col justify-center my-auto">
+      <h1 class="text-center text-3xl font-light text-gray-300">Room Name: <%= @room.name%> </h1>
+      <h1 class="text-center text-2xl font-light text-gray-300">Description: <%=@room.description%></h1>
     </div>
-    <div class=" col-span-1 row-span-4 p-2 rounded-lg bg-gray-300">
-        <h1 class="text-lg font-light">Users Online</h1>
-        <div id="users-online">
-        </div>
-    </div>
-    <div class="col-span-2 row-span-4">
-      <ul id="display"
-        class="h-3/4 bg-gray-200 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-500 overflow-auto p-2 rounded-md">
+    <div class="mb-4 p-1 rounded-lg bg-gray-300 md:col-span-1 row-span-4 md:p-4">
+      <h1 class="text-2xl font-light text-center">Users Online</h1>
+      <ul id="users-online" class="scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-500 overflow-auto p-2">
       </ul>
-      <form id="message-form">
+    </div>
+    <div class="rounded-lg md:col-span-2 row-span-4 h-full">
+      <ul id="display" class="bg-gray-200 h-52 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-500 overflow-auto
+        p-2 rounded-md md:h-96">
+      </ul>
+      <form id="message-form" class="flex flex-col md:mt-6 md:flex-row items-center h-32 space-x-4">
         <input id="message-body" type="text" placeholder="Start typing...."
-          class="mt-4 rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-3/4 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-lg text-base focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent"
-          Write your message here" />
-        <div class="mt-4">
+          class="w-full rounded-lg border-transparent  appearance-none border border-gray-300 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-lg text-base focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent md:w-3/4 mt-3 mb-3" />
+        <div class="md:flex justify-center">
           <button id="message-button"
-            class="w-36 px-4 py-2 text-base rounded-lg text-white bg-green-500 focus:outline-none">SEND</button />
+            class="w-36 px-4 py-2 text-base rounded-md shadow-lg text-white bg-green-500 focus:outline-none">SEND</button />
         </div>
       </form>
     </div>
