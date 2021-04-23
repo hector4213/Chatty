@@ -6,7 +6,9 @@ let roomId = window.roomId
 
 let presences = {}
 
-socket.connect()
+if (window.userToken) {
+	socket.connect()
+}
 
 if (roomId) {
 	const timeout = 1500
@@ -14,6 +16,7 @@ if (roomId) {
 	let isUserTyping = false
 
 	let channel = socket.channel(`room:${roomId}`, {})
+
 	channel
 		.join()
 		.receive('ok', (resp) => {
@@ -68,7 +71,7 @@ if (roomId) {
 
 	const displayMessage = (msg) => {
 		let template = `<li>
-		<strong>${msg.user.username}</strong>
+		<strong>${msg.user.username}: </strong>
 		${msg.body}
 		</li>`
 
@@ -79,13 +82,15 @@ if (roomId) {
 const displayUsers = (presences) => {
 	let online = Presence.list(presences, (_id, { metas: [user, ...rest] }) => {
 		let typingTemplate = ''
+
 		if (user.typing) {
-			typingTemplate = `<i class="far fa-keyboard text-red-600 animate-ping ml-4"></i>`
+			typingTemplate = `<i class="far fa-keyboard text-red-700 animate-ping ml-4"></i>`
 		}
-		return `<div id="user-${user.user_id} class="p-2 flex justify-start">
-		<span>${user.username}</span>
-		${typingTemplate}
-		</div>`
+
+		return `<li id="user-${user.user_id}" class="p-2 flex justify-start items-center rounded-md my-3 shadow-lg bg-gray-200">
+							<span class="font-light tracking-wider">${user.username}</span>
+																		${typingTemplate}
+		        </li>`
 	}).join('')
 	document.querySelector('#users-online').innerHTML = online
 }
