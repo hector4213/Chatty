@@ -1,29 +1,33 @@
-<div class="container">
+<div class="container w-full bg-gradient-to-r from-red-400 to-gray-200 shadow-lg rounded-lg  mb-36 mx-7 md:w-1/3">
   <%= form_for @changeset, Routes.registration_path(@conn, :create), [as: :registration, class: "w-full"], fn f -> %>
   <div class="text-center">
-    <h1 class="text-4xl">Sign Up</h1>
+    <h1 class="text-3xl p-4 font-thin tracking-widest text-gray-600">Sign Up</h1>
   </div>
-  <form>
-    <div>
-      <%= label f, :email, class: "bg-red-100", class: ""%>
-      <%= text_input f, :email, class: "", placeholder: "Email", required: true, autofocus: true%>
+  <form class="flex flex-col">
+    <div class="flex justify-between px-2 mb-2">
+      <%= label f, :email, class: "w-1/4 font-light my-auto"%>
+      <%= text_input f, :email, class: "w-4/6 h-10 rounded-lg px-4 border-transparent border-gray-300 focus:outline-none focus:ring-2 shadow-sm", placeholder: "Email", required: true, autofocus: true%>
       <%= error_tag f, :email %>
     </div>
-    <div>
-      <%= label f, :username, class: "bg-red-100", class: ""%>
-      <%= text_input f, :username, class: "", placeholder: "Enter Username", required: true  %> <%= error_tag f, :password %>
-    </div>
-    <div>
-      <%= label f, :password, class: "bg-red-100", class: ""%>
-      <%= password_input f, :password, class: "", placeholder: "Enter Password", required: true  %> <%= error_tag f, :password %>
+    <div class="flex justify-between px-2 mb-2">
+      <%= label f, :username, class: "w-1/4 font-light my-auto"%>
+      <%= text_input f, :username, class: "w-4/6 h-10 rounded-lg px-4 border-transparent border-gray-300 focus:outline-none focus:ring-2 shadow-sm", placeholder: "Enter Username", required: true  %>
       <%= error_tag f, :password %>
     </div>
-    <div>
-      <%= label f, :password_confirmation, class: "bg-red-100", class: ""%>
-      <%= password_input f, :password_confirmation, class: "", placeholder: "Confirm Password", required: true  %> <%= error_tag f, :password %>
+    <div class="flex justify-between items-center px-2 mb-2">
+      <%= label f, :password, class: "font-light my-auto"%>
+      <%= password_input f, :password, class: "w-4/6 h-10 rounded-lg px-4 border-transparent border-gray-300 focus:outline-none focus:ring-2 shadow-sm", placeholder: "Enter Password", required: true  %>
+      <%= error_tag f, :password %>
+      <%= error_tag f, :password %>
+    </div>
+    <div class="flex justify-between items-center px-2">
+      <%= label f, :password_confirmation, class: "w-2/6 font-light my-auto"%>
+      <%= password_input f, :password_confirmation, class: "w-4/6 h-10 rounded-lg flex-grow px-4 border-transparent border-gray-300 focus:outline-none focus:ring-2 shadow-sm", placeholder: "Confirm Password", required: true  %>
       <%= error_tag f, :password_confirmation %>
     </div>
-    <div><%= submit "Sign Up", class: "px-4 py-2 text-base rounded-full text-white bg-green-500" %></div>
+    <div class="flex justify-center p-5">
+      <%= submit "Sign Up", class: "mt-4 px-4 py-2 text-base rounded-md text-white bg-red-400" %>
+    </div>
   </form>
-<%end%>
+  <%end%>
 </div>
