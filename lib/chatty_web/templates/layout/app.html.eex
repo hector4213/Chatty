@@ -42,7 +42,7 @@
   <%= unless is_nil(get_flash(@conn, :error)) do %>
   <p class="bg-red-400" role="alert"> <%= get_flash(@conn, :error) %></p>
   <% end %>
-  <main role="main" class="h-full bg-gray-600 flex items-center justify-center ">
+  <main role="main" class="min-h-screen bg-gray-600 flex items-center justify-center">
     <%= @inner_content %>
   </main>
   <script>
