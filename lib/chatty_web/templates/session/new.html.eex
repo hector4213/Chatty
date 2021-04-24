@@ -1,19 +1,25 @@
-<div class="container">
+<div class="container bg-gradient-to-r from-red-400 to-gray-200 shadow-lg rounded-lg h-72 mb-36 mx-7 md:w-1/3">
   <%= form_for @conn, Routes.session_path(@conn, :create), [as: :session, class: "w-full"], fn f -> %>
   <div class="text-center">
-    <h1 class="text-4xl">Log In</h1>
+    <h1 class="text-3xl p-4 font-thin tracking-widest text-gray-600">Log In</h1>
   </div>
-  <form>
+  <form class="flex flex-col">
     <div>
-      <%= label f, :email, class: "bg-red-100", class: ""%>
-      <%= text_input f, :email, class: "", placeholder: "Email", required: true, autofocus: true%>
+      <div class="flex justify-between px-2 mb-2">
+        <%= label f, :email, class: "bg-red-100", class: ""%>
+        <%= text_input f, :email, class: "w-4/6 border-transparent rounded-lg px-4 border-gray-300 focus:outline-none focus:ring-2 shadow-sm", placeholder: "Email", required: true, autofocus: true%>
+      </div>
       <%= error_tag f, :email %>
     </div>
     <div>
-      <%= label f, :password, class: "bg-red-100", class: ""%>
-      <%= password_input f, :password, class: "", placeholder: "Enter Password", required: true  %> <%= error_tag f, :password %>
+      <div class="flex justify-between px-2">
+        <%= label f, :password, class: "bg-red-100", class: ""%>
+        <%= password_input f, :password, class: "w-4/6 rounded-lg px-4 border-transparent border-gray-300 focus:outline-none focus:ring-2 shadow-sm", placeholder: "Enter Password", required: true  %>
+      </div>
+      <%= error_tag f, :password %>
     </div>
-    <div><%= submit "Sign In", class: "px-4 py-2 text-base rounded-full text-white bg-blue-500" %></div>
+    <div class="flex justify-center items-center p-5">
+      <%= submit "Sign In", class: "px-4 py-2 text-base rounded-md text-white bg-red-400" %></div>
   </form>
-<%end%>
+  <%end%>
 </div>
