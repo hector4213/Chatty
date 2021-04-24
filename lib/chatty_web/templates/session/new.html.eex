@@ -1,4 +1,4 @@
-<div class="container bg-gradient-to-r from-red-400 to-gray-200 shadow-lg rounded-lg h-72 mb-36 mx-7 md:w-1/3">
+<div class="container bg-gradient-to-r from-red-400 to-gray-200 shadow-lg rounded-lg h-72 mx-7 md:w-1/3">
   <%= form_for @conn, Routes.session_path(@conn, :create), [as: :session, class: "w-full"], fn f -> %>
   <div class="text-center">
     <h1 class="text-3xl p-4 font-thin tracking-widest text-gray-600">Log In</h1>
