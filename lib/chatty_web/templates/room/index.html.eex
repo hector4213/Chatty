@@ -1,11 +1,11 @@
-<div class="container max-w-screen h-full max-h-full bg-gray-400 rounded-md p-2 md:m-4 md:h-4/6 md:max-h-full">
-  <div class="flex flex-col-reverse mt-36 md:grid grid-cols-6 md:grid-rows-4 md:my-autogap-x-4 md:mt-0 md:h-full">
+<div class="container max-w-screen mt-32 bg-gray-400 rounded-md p-2 md:m-4 md:h-4/6 md:max-h-full">
+  <div class="flex flex-col-reverse md:grid grid-cols-6 md:grid-rows-4 md:my-autogap-x-4 md:mt-0">
     <div class="md:col-span-2 md:row-span-full">
       <div
         class="container flex-grow flex flex-col h-full w-full items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow max-h-full">
         <h1 class="text-center text-2xl p-3 font-light text-gray-400">Rooms</h1>
         <ul
-          class="h-96 flex flex-col overflow-auto scrollbar scrollbar-thumb-gray-700 scrollbar-track-gray-100 md:mt-2 w-full md:h-full ">
+          class="h-96 flex flex-col overflow-auto scrollbar scrollbar-thumb-gray-700 scrollbar-track-gray-100 md:mt-2 w-full md:max-h-96 ">
           <%= for room <- @rooms do %>
           <li class="shadow-lg rounded-2xl my-2 mx-4 bg-white dark:bg-gray-800 p-4">
             <div class="flex-row gap-4 flex items-center">
