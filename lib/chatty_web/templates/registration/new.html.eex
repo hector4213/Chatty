@@ -1,4 +1,4 @@
-<div class="container w-full bg-gradient-to-r from-red-400 to-gray-200 shadow-lg rounded-lg  mb-36 mx-7 md:w-1/3">
+<div class="container w-full bg-gradient-to-r from-red-400 to-gray-200 shadow-lg rounded-lg mx-7 md:w-1/3 mt-10">
   <%= form_for @changeset, Routes.registration_path(@conn, :create), [as: :registration, class: "w-full"], fn f -> %>
   <div class="text-center">
     <h1 class="text-3xl p-4 font-thin tracking-widest text-gray-600">Sign Up</h1>
