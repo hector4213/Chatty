@@ -17,4 +17,8 @@ defmodule ChattyWeb.Plugs.AuthUser do
       |> halt()
     end
   end
+
+  def is_room_owner?(user, room) do
+    user && user.id == room.user_id
+  end
 end
