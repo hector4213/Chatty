@@ -3,8 +3,9 @@ defmodule ChattyWeb.RoomController do
 
   alias Chatty.Talk.Room
   alias Chatty.Talk
+  alias ChattyWeb.Plugs.AuthUser
 
-  plug ChattyWeb.Plugs.AuthUser when action not in [:index]
+  plug AuthUser when action not in [:index]
   plug :authorize_user when action in [:edit, :update, :delete]
 
   def index(conn, _params) do
