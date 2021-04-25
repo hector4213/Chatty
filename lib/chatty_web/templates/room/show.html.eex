@@ -1,15 +1,21 @@
-<div class="container h-full mt-24  bg-gray-400 rounded-md p-2 w-full shadow-xl max-h-full md:h-4/6  md:mt-0 mx-4">
-  <div class="flex flex-col md:grid grid-cols-3 gap-x-2 grid-rows-5 h-full">
+<div class="container  bg-gray-400 rounded-md p-2 w-full shadow-xl md:mt-0 mx-4">
+  <div class="flex flex-col justify-center md:grid grid-cols-3 gap-x-2 grid-rows-3">
     <div class="col-span-full flex-col justify-center my-auto mb-4">
-      <h1 class="text-center text-3xl font-light text-gray-300">Room Name: <%= @room.name%> </h1>
+      <h1 class="text-center text-xl font-light text-gray-300">Room Name: <%= @room.name%> </h1>
       <h1 class="text-center text-2xl font-light text-gray-300">Description: <%=@room.description%></h1>
+      <%=if ChattyWeb.Plugs.AuthUser.is_room_owner?(@current_user, @room) do%>
+      <div class="flex flex-col items-center p-2 md:flex-row justify-center md:items-center">
+        <%= link "Edit", to: Routes.room_path(@conn, :edit, @room.id), class: "px-4 py-2 w-36 text-center rounded-md shadow-lg text-white bg-blue-500 focus:outline-none" %>
+        <%= link "Delete", to: Routes.room_path(@conn, :delete, @room), method: :delete, data: [confirm: "Do you really want to Delete?"], class: "px-4 py-2 mt-1 w-36 text-center rounded-md shadow-lg text-white bg-red-700 focus:outline-none md:mt-0 ml-1" %>
+      </div>
+      <% end %>
     </div>
-    <div class="mb-4 p-1 rounded-lg bg-gray-300 md:col-span-1 row-span-4 md:p-4">
+    <div class="mb-4 p-1 rounded-lg bg-gray-300 md:row-span-2 md:p-4">
       <h1 class="text-2xl font-light text-center">Users Online</h1>
       <ul id="users-online" class="scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-500 overflow-auto p-2">
       </ul>
     </div>
-    <div class="rounded-lg md:col-span-2 row-span-4 h-full">
+    <div class="rounded-lg md:col-span-2 row-span-2">
       <ul id="display" class="bg-gray-200 h-52 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-500 overflow-auto
         p-2 rounded-md md:h-52">
       </ul>
