@@ -1,13 +1,16 @@
 <%= form_for @changeset, @action, fn f -> %>
-<form>
-  <div>
-    <%= label f, :name, class: "bg-red-100", class: "" %>
-    <%= text_input f, :name, class: "" %> <%= error_tag f, :name %>
+<form class="flex flex-col">
+  <div class="flex justify-between space-x-2 p-2">
+    <%= label f, :name,class: "font-light my-auto" %>
+    <%= text_input f, :name, class: "border-transparent rounded-lg px-4 border-gray-300 focus:outline-none focus:ring-2 shadow-sm" %>
+    <%= error_tag f, :name %>
   </div>
-  <div>
-    <%= label f, :description, class: "bg-red-100", class: "" %>
-    <%= text_input f, :description, class: "" %> <%= error_tag f, :description %>
+  <div class="flex justify-between space-x-2 p-2">
+    <%= label f, :description, class: "font-light my-auto" %>
+    <%= text_input f, :description, class: "border-transparent rounded-lg px-4 border-gray-300 focus:outline-none focus:ring-2 shadow-sm" %>
+    <%= error_tag f, :description %>
   </div>
-  <div><%= submit "Submit", class: "" %></div>
+  <div class="flex justify-center p-4">
+    <%= submit "Submit", class: "px-4 py-2 text-base rounded-md text-white bg-red-600" %></div>
 </form>
 <%end%>
