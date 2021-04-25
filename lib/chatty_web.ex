@@ -24,7 +24,7 @@ defmodule ChattyWeb do
       import Plug.Conn
       import ChattyWeb.Gettext
       alias ChattyWeb.Router.Helpers, as: Routes
-      alias ChatAppWeb.Plugs.AuthUser
+      alias ChattyWeb.Plugs.AuthUser
     end
   end
 
