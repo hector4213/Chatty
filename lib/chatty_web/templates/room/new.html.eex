@@ -1,3 +1,4 @@
 <div class="p-4 bg-gradient-to-r from-red-400 to-gray-200 shadow-lg rounded-lg">
+  <h1 class="text-lg p-4 font-light text-center"">Create a New Room</h1>
   <%= render "form.html", Map.put(assigns, :action, Routes.room_path(@conn, :create)) %>
 </div
